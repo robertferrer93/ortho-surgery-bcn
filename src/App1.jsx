@@ -1,0 +1,585 @@
+// src/App.jsx
+import React, { useState } from 'react';
+
+function App() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  const facilityImages = [
+    {
+      src: '/images/clinica_diagonal_2.jpg',
+      title: 'Hospital exterior',
+      caption: 'Main façade of Clínica Diagonal.',
+    },
+    {
+      src: '/images/cex_diagonal.jpg',
+      title: 'Outpatient clinic',
+      caption:
+        'Consultation and outpatient area for pre- and postoperative visits.',
+    },
+    {
+      src: '/images/quirofan_diagonal.jpg',
+      title: 'Operating theatre',
+      caption: 'Modern operating theatre used for hip and knee procedures.',
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {/* Top bar */}
+      <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
+          <div className="flex items-center gap-2">
+            <div className="h-8 w-8 rounded-xl border border-sky-500/30 bg-sky-50 flex items-center justify-center text-xs font-semibold text-sky-700">
+              OS
+            </div>
+            <div>
+              <div className="text-sm font-semibold tracking-wide text-slate-900">
+                OrthoSurgery BCN
+              </div>
+              <div className="text-xs text-slate-500">
+                Hip &amp; Knee Surgery · Barcelona
+              </div>
+            </div>
+          </div>
+          <nav className="hidden gap-6 text-sm text-slate-600 md:flex">
+            <a href="#about" className="hover:text-sky-700">
+              About
+            </a>
+            <a href="#team" className="hover:text-sky-700">
+              Team
+            </a>
+            <a href="#clinic" className="hover:text-sky-700">
+              Clinic
+            </a>
+            <a href="#pathway" className="hover:text-sky-700">
+              Patient Pathway
+            </a>
+            <a href="#contact" className="hover:text-sky-700">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <main>
+        <section className="border-b border-slate-200 bg-gradient-to-b from-sky-50/70 to-slate-50">
+          <div className="mx-auto max-w-6xl px-0 pt-0 pb-0">
+            {/* Skyline Barcelona – franja sutil */}
+            <div className="flex justify-center mb-0">
+              <img
+                src="/images/skyline_bcn.svg"
+                alt="Barcelona skyline"
+                className="w-[100] max-h-22 object-contain opacity-30"
+              />
+            </div>
+
+            {/* Contenido principal del hero */}
+            <div className="flex flex-col gap-10 md:flex-row md:items-center md:py-6">
+              <div className="md:w-1/2">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-600">
+                  Barcelona · Hip & Knee
+                </p>
+
+                <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+                  Specialist orthopaedic care for{' '}
+                  <span className="text-sky-700">Ireland & UK patients</span> in
+                  Barcelona.
+                </h1>
+
+                <p className="mt-4 text-sm leading-relaxed text-slate-600 md:text-base">
+                  OrthoSurgery BCN is a dedicated orthopaedic team focused on
+                  hip and knee surgery for international patients, offering a
+                  streamlined pathway aligned with partners working under the EU
+                  Cross Border Healthcare Directive.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center rounded-full bg-sky-700 px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800"
+                  >
+                    Contact coordination
+                  </a>
+                  <a
+                    href="#pathway"
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-sky-800"
+                  >
+                    View patient pathway
+                  </a>
+                </div>
+
+                <p className="mt-4 text-xs text-slate-500">
+                  Designed specifically for collaboration with healthcare
+                  facilitation partners.
+                </p>
+              </div>
+
+              {/* Tarjeta snapshot */}
+              <div className="md:w-1/2">
+                <div className="rounded-3xl border border-sky-100 bg-white p-4 shadow-sm md:p-6">
+                  <div className="rounded-2xl border border-sky-100 bg-sky-50/60 p-4">
+                    <h2 className="text-sm font-semibold text-slate-900">
+                      Snapshot – OrthoSurgery BCN
+                    </h2>
+
+                    <dl className="mt-4 grid grid-cols-1 gap-3 text-xs text-slate-600 md:grid-cols-2">
+                      <div className="rounded-xl bg-white p-3 shadow-xs border border-slate-100">
+                        <dt className="font-medium text-slate-900">
+                          Clinical focus
+                        </dt>
+                        <dd className="mt-1">
+                          Knee & hip arthroplasty, joint preservation, sports
+                          knee surgery.
+                        </dd>
+                      </div>
+
+                      <div className="rounded-xl bg-white p-3 shadow-xs border border-slate-100">
+                        <dt className="font-medium text-slate-900">
+                          Primary facility
+                        </dt>
+                        <dd className="mt-1">
+                          Clínica Diagonal – modern, premium private hospital in
+                          Barcelona.
+                        </dd>
+                      </div>
+
+                      <div className="rounded-xl bg-white p-3 shadow-xs border border-slate-100">
+                        <dt className="font-medium text-slate-900">
+                          Target patients
+                        </dt>
+                        <dd className="mt-1">
+                          Elective hip & knee procedures for Ireland and UK
+                          patients.
+                        </dd>
+                      </div>
+
+                      <div className="rounded-xl bg-white p-3 shadow-xs border border-slate-100">
+                        <dt className="font-medium text-slate-900">
+                          Pathway design
+                        </dt>
+                        <dd className="mt-1">
+                          Fully compatible with Healthcare Abroad protocols and
+                          HSE requirements.
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About OrthoSurgery BCN */}
+        <section id="about" className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="max-w-3xl">
+              <h2 className="text-xl font-semibold text-slate-900">
+                OrthoSurgery BCN – overview
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                OrthoSurgery BCN is a specialised orthopaedic group based in
+                Barcelona, dedicated to hip and knee surgery with specific
+                experience in caring for international patients. The project is
+                built to integrate smoothly with medical facilitation partners,
+                ensuring clear communication, predictable pathways and
+                high-quality clinical outcomes.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                Our aim is to offer a reliable, clinician-led service with a
+                premium hospital environment, while keeping the pathway simple
+                and aligned with the expectations of Ireland and UK patients
+                travelling abroad for care.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section id="team" className="border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-md">
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Clinical team
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                  The OrthoSurgery BCN team brings together complementary
+                  expertise in knee and hip surgery, covering arthroplasty,
+                  arthroscopy and joint preservation procedures.
+                </p>
+              </div>
+
+              <div className="grid flex-1 gap-4 md:grid-cols-2">
+                <TeamCard
+                  name="Dr. Robert Ferrer Rivero"
+                  role="Knee arthroplasty & arthroscopic surgery"
+                  detail="Specialist in knee replacement and sports-related knee procedures, with a focus on fast-track recovery and joint preservation when appropriate."
+                />
+                <TeamCard
+                  name="Dr. Luis Melo Messa"
+                  role="Knee arthroplasty & arthroscopic surgery"
+                  detail="Extensive experience in primary knee arthroplasty and arthroscopic management of ligament and meniscal injuries."
+                />
+                <TeamCard
+                  name="Dr. Josep Ferrer Rivero"
+                  role="Hip arthroscopy & hip arthroplasty"
+                  detail="Hip specialist with practice in both joint-preserving hip arthroscopy and total hip replacement."
+                />
+                <TeamCard
+                  name="Dr. Miquel Pons"
+                  role="Hip arthroplasty"
+                  detail="Focused on hip replacement surgery, working within enhanced recovery protocols for international patients."
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Clinic Diagonal */}
+        <section id="clinic" className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="grid gap-8 md:grid-cols-2 md:items-start">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Hospital facility – Clínica Diagonal
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                  Clínica Diagonal is a modern, premium private hospital in
+                  Barcelona, equipped with advanced operating theatres, updated
+                  inpatient areas and multilingual staff experienced with
+                  international patients.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                  The environment and infrastructure are fully aligned with the
+                  requirements for elective hip and knee surgery pathways for
+                  Ireland and UK patients, including those treated under the EU
+                  Cross Border Healthcare Directive.
+                </p>
+
+                <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    Dedicated orthopaedic theatres with modern imaging and
+                    anaesthetic equipment.
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    Renovated inpatient rooms suitable for international
+                    patients and relatives.
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    On-site physiotherapy support and close postoperative
+                    monitoring.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <h3 className="text-sm font-semibold text-slate-900">
+                  Facility snapshot
+                </h3>
+                <dl className="mt-4 space-y-3 text-xs text-slate-600">
+                  <InfoRow
+                    label="Location"
+                    value="Barcelona – easily accessible from Dublin, Cork, Belfast, London and major UK airports."
+                  />
+                  <InfoRow
+                    label="Setting"
+                    value="Premium private hospital with strong focus on elective surgery."
+                  />
+                  <InfoRow
+                    label="Languages"
+                    value="Spanish, Catalan and English-speaking staff used to international patients."
+                  />
+                  <InfoRow
+                    label="Suitability"
+                    value="Ideal for high-standard hip and knee surgery programmes with structured pathways."
+                  />
+                </dl>
+              </div>
+            </div>
+
+            {/* --- Image gallery within Facility section (with lightbox trigger) --- */}
+            <div className="mt-8 border-t border-slate-200 pt-8">
+              <div className="grid gap-4 md:grid-cols-3">
+                {facilityImages.map((img) => (
+                  <button
+                    key={img.src}
+                    type="button"
+                    onClick={() => setLightboxImage(img)}
+                    className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.title}
+                      className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-3 pt-6">
+                      <p className="text-xs font-semibold text-slate-50">
+                        {img.title}
+                      </p>
+                      <p className="mt-1 text-[11px] text-slate-200">
+                        {img.caption}
+                      </p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Patient Pathway */}
+        <section id="pathway" className="border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="grid gap-10 md:grid-cols-[1.2fr,0.8fr] md:items-start">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Patient pathway – provisional model
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                  The pathway below is designed to reflect the protocol
+                  discussed with Healthcare Abroad and can be further refined
+                  together before implementation.
+                </p>
+
+                <ol className="mt-5 space-y-3 text-sm text-slate-700">
+                  <PathwayStep
+                    step="Arrival (Saturday–Sunday)"
+                    text="Patients travel to Barcelona over the weekend, allowing time to settle and be ready for assessment on Monday."
+                  />
+                  <PathwayStep
+                    step="Pre-operative assessment (Monday)"
+                    text="Full pre-op assessment: blood tests, imaging when required, anaesthetic review and in-person consultation with the surgeon."
+                  />
+                  <PathwayStep
+                    step="Surgery (Tuesday)"
+                    text="Hip or knee replacement, or joint preservation procedure, performed in Clínica Diagonal within agreed protocols and implant standards."
+                  />
+                  <PathwayStep
+                    step="Hospital stay (1–3 nights)"
+                    text="Inpatient stay including bedside physiotherapy, pain control and early mobilisation, tailored to the procedure and patient profile."
+                  />
+                  <PathwayStep
+                    step="Postoperative physiotherapy (from following Monday)"
+                    text="Intensive physiotherapy plan with two sessions per day, focusing on safe mobility, functional recovery and patient confidence before returning home."
+                  />
+                  <PathwayStep
+                    step="Return home & remote follow-up"
+                    text="Structured discharge summary in English, clear rehab recommendations and remote follow-up options coordinated with the partner and the patient’s GP or physiotherapist."
+                  />
+                </ol>
+              </div>
+
+              <div className="rounded-3xl border border-sky-100 bg-white p-5 shadow-sm">
+                <h3 className="text-sm font-semibold text-slate-900">
+                  Designed for facilitation partners
+                </h3>
+                <p className="mt-3 text-xs leading-relaxed text-slate-600">
+                  The pathway is intentionally simple and predictable, so that
+                  partners can:
+                </p>
+                <ul className="mt-3 space-y-2 text-xs text-slate-600">
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    Align travel and accommodation packages with fixed dates.
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    Ensure compliance with HSE and other reimbursement
+                    frameworks.
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-600" />
+                    Communicate a clear, patient-friendly schedule from day one.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Barcelona */}
+        <section className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="grid gap-8 md:grid-cols-2 md:items-center">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Why Barcelona for Ireland &amp; UK patients
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+                  Barcelona combines high medical standards with excellent
+                  connectivity and a safe, comfortable environment for patients
+                  and families travelling from abroad.
+                </p>
+              </div>
+              <div className="grid gap-3 text-sm text-slate-700">
+                <WhyItem title="Easy access">
+                  Multiple direct flights from Dublin, Cork, Belfast, London and
+                  major UK airports.
+                </WhyItem>
+                <WhyItem title="High-quality care">
+                  Strong orthopaedic tradition, modern hospitals and established
+                  enhanced recovery pathways.
+                </WhyItem>
+                <WhyItem title="Patient experience">
+                  Safe, walkable city with a wide range of hotels and apartments
+                  suitable for mid-length stays.
+                </WhyItem>
+                <WhyItem title="Clear coordination">
+                  English-language communication and clinician-led coordination
+                  for partners and patients.
+                </WhyItem>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section
+          id="contact"
+          className="bg-slate-900 text-slate-50 border-t border-slate-800"
+        >
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="grid gap-8 md:grid-cols-[1.1fr,0.9fr] md:items-start">
+              <div>
+                <h2 className="text-xl font-semibold">
+                  Contact &amp; coordination
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-slate-200 md:text-base">
+                  This project is designed specifically for collaboration with
+                  medical facilitation partners such as Healthcare Abroad. We
+                  are happy to adapt the pathway, reporting and logistics to
+                  your operational needs.
+                </p>
+                <p className="mt-3 text-xs text-slate-400">
+                  For detailed clinical CVs, package options or further
+                  questions, please get in touch directly.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-5">
+                <h3 className="text-sm font-semibold text-slate-50">
+                  OrthoSurgery BCN – coordination office
+                </h3>
+                <dl className="mt-4 space-y-2 text-sm">
+                  <InfoRowDark
+                    label="Lead contact"
+                    value="Dr. Robert Ferrer Rivero – Orthopaedic Surgeon (Knee)"
+                  />
+                  <InfoRowDark
+                    label="Email"
+                    value="ferrerriverotraumatologia@gmail.com"
+                  />
+                  <InfoRowDark label="Phone" value="+34 667 422 036" />
+                  <InfoRowDark
+                    label="Location"
+                    value="Barcelona · Clínica Diagonal"
+                  />
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="bg-slate-950 py-4 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} OrthoSurgery BCN – Clinical concept for
+          international collaboration.
+        </footer>
+      </main>
+
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImage(null)}
+              className="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/80 text-sm text-white"
+            >
+              ✕
+            </button>
+            <img
+              src={lightboxImage.src}
+              alt={lightboxImage.title}
+              className="w-full max-h-[80vh] rounded-2xl object-contain bg-black"
+            />
+            <div className="mt-3 text-sm text-slate-100">
+              <div className="font-semibold">{lightboxImage.title}</div>
+              <div className="mt-1 text-xs text-slate-200">
+                {lightboxImage.caption}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Small presentational components
+
+function TeamCard({ name, role, detail }) {
+  return (
+    <div className="h-full rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+      <div className="text-sm font-semibold text-slate-900">{name}</div>
+      <div className="mt-0.5 text-xs font-medium text-sky-700">{role}</div>
+      <p className="mt-2 text-xs leading-relaxed text-slate-600">{detail}</p>
+    </div>
+  );
+}
+
+function InfoRow({ label, value }) {
+  return (
+    <div className="border-b border-slate-200 pb-2 last:border-none last:pb-0">
+      <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+        {label}
+      </dt>
+      <dd className="mt-1">{value}</dd>
+    </div>
+  );
+}
+
+function InfoRowDark({ label, value }) {
+  return (
+    <div className="border-b border-slate-800 pb-2 last:border-none last:pb-0">
+      <dt className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+        {label}
+      </dt>
+      <dd className="mt-1 text-slate-100">{value}</dd>
+    </div>
+  );
+}
+
+function PathwayStep({ step, text }) {
+  return (
+    <li className="flex gap-3">
+      <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-sky-700 text-[11px] font-semibold text-white">
+        ✓
+      </div>
+      <div>
+        <div className="font-semibold text-slate-900">{step}</div>
+        <div className="text-sm text-slate-600">{text}</div>
+      </div>
+    </li>
+  );
+}
+
+function WhyItem({ title, children }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+      <div className="text-sm font-semibold text-slate-900">{title}</div>
+      <div className="mt-1 text-sm text-slate-600">{children}</div>
+    </div>
+  );
+}
+
+export default App;
