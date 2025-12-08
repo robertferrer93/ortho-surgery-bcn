@@ -1,9 +1,22 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [activeDoctor, setActiveDoctor] = useState(null);
+
+  // Bloquear/desbloquear scroll del fondo cuando se abre/cierra el perfil
+  useEffect(() => {
+    if (activeDoctor) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeDoctor]);
 
   const facilityImages = [
     {
@@ -32,87 +45,111 @@ function App() {
       role: 'Knee arthroplasty & arthroscopic surgery',
       shortDetail:
         'Expertise in total and partial knee replacement, ACL/PCL reconstruction and meniscal repair.',
-      photo: '/images/team/robert_ferrer.png', // ajusta la ruta real
+      photo: '/images/team/robert_ferrer.png',
       summary:
-        'Orthopaedic surgeon specialised in knee surgery, including joint replacement, osteotomies, arthroscopy and joint preservation. Trained at Bellvitge University Hospital, currently practising at Clínica Diagonal, Hospital Sant Rafael and Grupo COTA.',
+        'Orthopaedic surgeon specialised in knee surgery, including joint replacement, osteotomies, arthroscopy and joint preservation. He practises at Clínica Diagonal, Hospital Sant Rafael and Grupo COTA.',
       experience: [
         'Consultant orthopaedic surgeon – Knee Unit at Clínica Diagonal, Hospital Sant Rafael and Grupo COTA (Barcelona)',
-        'Resident in Orthopaedic Surgery and Traumatology – Bellvitge University Hospital (2018–2023)',
+        'Orthopaedic Surgery and Traumatology residency – Bellvitge University Hospital (2018–2023)',
       ],
       education: [
-        'Specialist in Orthopaedic Surgery and Traumatology – Bellvitge University Hospital (2018–2023)',
-        'Stage in Knee and Sports Medicine Surgery – Dr. Jorge Chahla, Midwest Orthopaedics at Rush (Chicago)',
-        'Paediatric Orthopaedic Training – Sant Joan de Déu Hospital',
+        'Specialist in Orthopaedic Surgery and Traumatology – Bellvitge University Hospital',
+        'Knee and Sports Medicine Surgery – Dr. Jorge Chahla, Rush (Chicago)',
+        'Paediatric Orthopaedics – Sant Joan de Déu Hospital',
         'Degree in Medicine – University of Barcelona (Hospital Clínic)',
       ],
       publications: [
-        'Author of peer-reviewed articles on high tibial osteotomy, knee arthroplasty and joint-preserving surgery.',
-        'Best communication award, SECOT 2024, for the economic evaluation of high tibial osteotomy.',
-        'Currently completing a PhD thesis on the biomechanical analysis of kinematic alignment in total knee arthroplasty.',
+        'Peer-reviewed articles on high tibial osteotomy, knee arthroplasty and joint-preserving surgery.',
+        'Best communication award, SECOT 2024.',
+        'PhD thesis in progress on kinematic alignment in total knee arthroplasty.',
       ],
       memberships: ['SECOT', 'SEROD', 'Barcelona Knee Associated Meeting'],
     },
+
     {
       id: 'luis',
       name: 'Dr. Luis Melo Messa',
-      role: 'Knee arthroplasty & arthroscopic surgery',
+      role: 'Knee arthroscopy, sports medicine & joint preservation',
       shortDetail:
-        'Extensive experience in primary knee arthroplasty and arthroscopic management of ligament and meniscal injuries.',
-      photo: '/images/team/luis_melo.jpg',
+        'Specialised in knee arthroscopy, ligament reconstruction, joint preservation and primary knee arthroplasty.',
+      photo: '/images/team/luis_melo.jpeg',
       summary:
-        'Orthopaedic surgeon focused on knee replacement and arthroscopic knee surgery, with experience in complex primary and revision cases.',
+        'Orthopaedic surgeon focused on advanced knee arthroscopy, ligament reconstruction, joint-preserving procedures and knee arthroplasty, with experience in Spanish and international centres.',
       experience: [
-        'Knee arthroplasty and arthroscopy in high-volume centres',
-        'Management of ligament and meniscal injuries in sports patients',
+        'Specialist in Orthopaedics and Traumatology – Fundación Hospitalarias (Barcelona)',
+        'Knee arthroscopy, ligament reconstruction and joint preservation – Hospital Universitario de Igualada',
+        'Orthopaedic trauma and emergency care – Hospital Dexeus (Barcelona)',
       ],
       education: [
-        'Specialist in Orthopaedic Surgery and Traumatology',
-        'Courses and fellowships in knee surgery',
+        'Specialist in Orthopaedic Surgery and Traumatology – ELAM / Frank País Institute (validated in Spain)',
+        'Master’s fellowship in knee and hip reconstruction – Hospital Clínic / Bellvitge',
+        'Fellowship in knee arthroscopy and sports medicine – ICATME (DEXEUS)',
+        'Observer in knee arthroscopy and sports medicine – Rush Hospital (Chicago)',
       ],
       publications: [
-        'Participation in clinical sessions and teaching activities',
+        'Scientific publications on patellofemoral instability and degenerative meniscus.',
+        'Instructor in national knee arthroscopy courses for residents (CIAR Barcelona).',
       ],
       memberships: ['SECOT', 'SEROD'],
     },
+
     {
       id: 'josep',
       name: 'Dr. Josep Ferrer Rivero',
-      role: 'Hip arthroscopy & hip arthroplasty',
+      role: 'Hip arthroscopy, hip preservation & hip arthroplasty',
       shortDetail:
-        'Hip specialist with practice in both joint-preserving hip arthroscopy and total hip replacement.',
-      photo: '/images/team/josep_ferrer.jpg',
+        'Specialist in hip arthroscopy, hip preservation, robotic hip surgery and primary hip replacement.',
+      photo: '/images/team/josep_ferrer.jpeg',
       summary:
-        'Hip surgeon combining minimally invasive hip arthroscopy for preservation with total hip arthroplasty when indicated.',
+        'Orthopaedic surgeon dedicated to hip preservation and arthroscopy, minimally invasive and robotic hip arthroplasty, and sports-related hip pathology. He practises at IMOVE Group, Clínica Diagonal and MC Mutual.',
       experience: [
-        'Hip arthroscopy and preservation procedures',
-        'Primary total hip replacement in elective settings',
+        'Head of the Advanced Trauma Unit – MC Mutual (Barcelona)',
+        'Hip specialist surgeon – IMOVE Group (hip arthroscopy, preservation and robotic hip arthroplasty)',
+        'Trauma and hip surgeon – Clínica Diagonal (Barcelona)',
       ],
       education: [
-        'Specialist in Orthopaedic Surgery and Traumatology',
-        'Advanced courses in hip arthroscopy',
+        'Orthopaedic Surgery and Traumatology residency – Hospital Germans Trias i Pujol (Barcelona)',
+        'Hip preservation fellowship – HFR Fribourg (Switzerland)',
+        'Paediatric Orthopaedics – Sant Joan de Déu Hospital',
+        'National arthroscopy training programme – AEA',
+        'Degree in Medicine – Universidad Alfonso X el Sabio (Madrid)',
       ],
-      publications: ['Educational activities in hip pathology'],
-      memberships: ['SECOT'],
+      publications: [
+        'Publications on hip arthroscopy, femoroacetabular impingement and cost-effectiveness of osteotomies.',
+        'Speaker at SEROD, EFORT and European Hip Society meetings.',
+      ],
+      memberships: ['SECOT', 'SEROD', 'AEA', 'EHS'],
     },
+
     {
       id: 'miquel',
-      name: 'Dr. Miquel Pons',
-      role: 'Hip arthroplasty',
+      name: 'Dr. Miquel Pons Cabrafiga',
+      role: 'Hip arthroplasty & revision surgery',
       shortDetail:
-        'Focused on hip replacement surgery, working within enhanced recovery protocols for international patients.',
-      photo: '/images/team/miquel_pons.jpg',
+        'Expert in primary and revision hip arthroplasty, periprosthetic infection and complex reconstructions.',
+      photo: '/images/team/miquel_pons.jpeg',
       summary:
-        'Orthopaedic surgeon dedicated to hip arthroplasty, with experience in enhanced recovery programmes and international patients.',
+        'Senior orthopaedic surgeon with more than 25 years of experience in hip and knee arthroplasty, revision surgery and bone infection. Chief of the Orthopaedic Surgery Department at Hospital Sant Rafael.',
       experience: [
-        'Primary hip replacement in high-volume elective surgery settings',
-        'Participation in fast-track hip replacement protocols',
+        'Chief of Orthopaedic Surgery – Hospital Sant Rafael (Barcelona)',
+        'Senior staff surgeon in hip and knee arthroplasty since 1995 – Hospital Sant Rafael',
+        'Consultant for arthroplasty registries and international implant companies',
       ],
       education: [
-        'Specialist in Orthopaedic Surgery and Traumatology',
-        'Training in modern hip arthroplasty techniques',
+        'Degree in Medicine – University of Barcelona',
+        'Orthopaedic Surgery and Traumatology residency – Hospital Mutua de Terrassa',
+        'Fellowship in hip and knee arthroplasty – London Health Science Hospital, University of Western Ontario (Canada)',
       ],
-      publications: ['Participation in scientific meetings and teaching'],
-      memberships: ['SECOT'],
+      publications: [
+        'More than 50 scientific publications and book chapters.',
+        'Over 400 presentations at national and international congresses and courses.',
+      ],
+      memberships: [
+        'SECOT',
+        'Spanish Hip Society (past secretary)',
+        'European Hip Society',
+        'European Bone and Joint Infection Society',
+      ],
     },
   ];
 
@@ -387,7 +424,7 @@ function App() {
               <div className="flex justify-center">
                 <div className="overflow-hidden rounded-xl border border-slate-200/70 shadow-md w-full max-w-ld">
                   <img
-                    src="/images/team_photo.jpg"
+                    src="/images/team_photo.jpeg"
                     alt="OrthoSurgery BCN team"
                     className="w-full h-80 object-cover"
                   />
@@ -975,9 +1012,15 @@ function DoctorModal({ doctor, onClose }) {
   if (!doctor) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative bg-white w-[min(900px,90vw)] max-h-[85vh] rounded-3xl shadow-2xl overflow-hidden border border-sky-100">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-[900px] max-h-[85vh] rounded-3xl shadow-2xl overflow-hidden border border-sky-100 bg-white flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Cabecera */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50/70">
           <div className="flex items-center gap-3">
             <div className="h-12 w-12 rounded-full border border-sky-100 bg-slate-100 overflow-hidden flex items-center justify-center">
@@ -1015,76 +1058,79 @@ function DoctorModal({ doctor, onClose }) {
           </button>
         </div>
 
-        <div className="grid gap-6 p-6 md:grid-cols-[0.9fr,1.1fr] overflow-y-auto">
-          <div className="space-y-4">
-            <div className="aspect-[4/5] rounded-2xl bg-slate-100 border border-sky-100 overflow-hidden flex items-center justify-center">
-              {doctor.photo ? (
-                <img
-                  src={doctor.photo}
-                  alt={doctor.name}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <span className="text-sm font-semibold text-slate-500 px-4 text-center">
-                  {doctor.name}
-                </span>
+        {/* Contenido scrollable */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="grid gap-6 p-6 md:grid-cols-[0.9fr,1.1fr]">
+            <div className="space-y-4">
+              <div className="aspect-[4/5] rounded-2xl bg-slate-100 border border-sky-100 overflow-hidden flex items-center justify-center">
+                {doctor.photo ? (
+                  <img
+                    src={doctor.photo}
+                    alt={doctor.name}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <span className="text-sm font-semibold text-slate-500 px-4 text-center">
+                    {doctor.name}
+                  </span>
+                )}
+              </div>
+              <div className="text-xs text-slate-600">{doctor.summary}</div>
+            </div>
+
+            <div className="space-y-5 text-sm text-slate-700">
+              {doctor.experience && (
+                <section>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Clinical experience
+                  </div>
+                  <ul className="mt-2 space-y-1.5">
+                    {doctor.experience.map((item) => (
+                      <li key={item}>□ {item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {doctor.education && (
+                <section>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Training & education
+                  </div>
+                  <ul className="mt-2 space-y-1.5">
+                    {doctor.education.map((item) => (
+                      <li key={item}>□ {item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {doctor.publications && (
+                <section>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Publications & teaching
+                  </div>
+                  <ul className="mt-2 space-y-1.5">
+                    {doctor.publications.map((item) => (
+                      <li key={item}>□ {item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {doctor.memberships && (
+                <section>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Memberships
+                  </div>
+                  <ul className="mt-2 space-y-1.5">
+                    {doctor.memberships.map((item) => (
+                      <li key={item}>□ {item}</li>
+                    ))}
+                  </ul>
+                </section>
               )}
             </div>
-            <div className="text-xs text-slate-600">{doctor.summary}</div>
-          </div>
-
-          <div className="space-y-5 text-sm text-slate-700">
-            {doctor.experience && (
-              <section>
-                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Clinical experience
-                </div>
-                <ul className="mt-2 space-y-1.5">
-                  {doctor.experience.map((item) => (
-                    <li key={item}>□ {item}</li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {doctor.education && (
-              <section>
-                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Training & education
-                </div>
-                <ul className="mt-2 space-y-1.5">
-                  {doctor.education.map((item) => (
-                    <li key={item}>□ {item}</li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {doctor.publications && (
-              <section>
-                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Publications & teaching
-                </div>
-                <ul className="mt-2 space-y-1.5">
-                  {doctor.publications.map((item) => (
-                    <li key={item}>□ {item}</li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {doctor.memberships && (
-              <section>
-                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Memberships
-                </div>
-                <ul className="mt-2 space-y-1.5">
-                  {doctor.memberships.map((item) => (
-                    <li key={item}>□ {item}</li>
-                  ))}
-                </ul>
-              </section>
-            )}
           </div>
         </div>
       </div>
