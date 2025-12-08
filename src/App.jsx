@@ -682,23 +682,93 @@ function App() {
           className="border-b border-slate-200 bg-slate-50"
         >
           <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-            <div className="mb-8 max-w-3xl space-y-3">
-              <h2 className="text-xl font-semibold text-slate-900">
-                Accommodation options
-              </h2>
-              <p className="text-sm leading-relaxed text-slate-600 md:text-base">
-                Several hotels and serviced apartments close to Clínica Diagonal
-                are suitable for patients who need to stay before and after
-                surgery. Most options include facilities compatible with early
-                rehabilitation, and our physiotherapy team can attend sessions
-                directly onsite when required.
-              </p>
-              <p className="text-sm leading-relaxed text-slate-600 md:text-base">
-                For patients who prefer the coast, Castelldefels (around 20 km
-                from the clinic) offers modern hotels and apartments, a range of
-                restaurants and a long, flat seaside promenade ideal for walking
-                during recovery.
-              </p>
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+              {/* LEFT COLUMN – Main text */}
+              <div className="md:col-span-2 space-y-8">
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Accommodation options
+                </h2>
+
+                {/* Castelldefels & Gava Beach */}
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-slate-800">
+                    Castelldefels & Gava Beach: seaside comfort for recovery
+                  </h3>
+
+                  <p className="text-sm leading-relaxed text-slate-600 md:text-base">
+                    Just 20–25 minutes from our surgical centres, Castelldefels
+                    and Gava Beach offer an ideal environment for early
+                    rehabilitation after hip or knee surgery. Their long, flat
+                    beachfront promenade allows safe, progressive walking, while
+                    the calm seaside atmosphere supports rest and comfort.
+                  </p>
+
+                  <p className="text-sm leading-relaxed text-slate-600 md:text-base">
+                    These coastal areas provide a wide selection of quality
+                    hotels and serviced apartments, warm weather, sea views and
+                    convenient access to physiotherapy and follow-up
+                    appointments—making them a popular option for patients
+                    seeking a relaxing recovery setting.
+                  </p>
+                </div>
+
+                {/* Barcelona */}
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-slate-800">
+                    Barcelona: premium comfort in the city
+                  </h3>
+
+                  <p className="text-sm leading-relaxed text-slate-600 md:text-base">
+                    For patients who prefer an urban environment, Barcelona
+                    offers a wide selection of premium hotels with full
+                    amenities and comfort. The city’s exceptional gastronomy,
+                    architecture and cultural attractions provide an enriching
+                    setting for patients and accompanying family members.
+                  </p>
+
+                  <p className="text-sm leading-relaxed text-slate-600 md:text-base">
+                    Its compact layout allows easy movement and access to key
+                    areas, making recovery periods both practical and enjoyable.
+                    All locations remain within quick reach of our surgical
+                    centres and rehabilitation facilities.
+                  </p>
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN – Snapshots */}
+              <div className="space-y-10">
+                {/* Key Points Castelldefels & Gava Beach */}
+                <div className="rounded-xl bg-white p-5 shadow-sm border border-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-700 md:text-base mb-3">
+                    Key points – Castelldefels & Gava Beach
+                  </h4>
+                  <ul className="list-disc pl-5 text-sm leading-relaxed text-slate-600 md:text-base space-y-1">
+                    <li>
+                      Flat beachfront promenade ideal for early mobilisation
+                    </li>
+                    <li>
+                      Wide range of quality hotels and serviced apartments
+                    </li>
+                    <li>Calm seaside environment that promotes rest</li>
+                    <li>Excellent value and physiotherapy access</li>
+                    <li>10–15 minutes from Barcelona Airport</li>
+                  </ul>
+                </div>
+
+                {/* Key points Barcelona */}
+                <div className="rounded-xl bg-white p-5 shadow-sm border border-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-700 md:text-base mb-3">
+                    Key points – Barcelona
+                  </h4>
+                  <ul className="list-disc pl-5 text-sm leading-relaxed text-slate-600 md:text-base space-y-1">
+                    <li>Premium hotels with full amenities</li>
+                    <li>Excellent gastronomy and cultural options</li>
+                    <li>Ideal for patients travelling with family</li>
+                    <li>Fast access to hospitals and rehabilitation centres</li>
+                    <li>Outstanding transport connections</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div className="space-y-8">
@@ -1139,3 +1209,4 @@ function DoctorModal({ doctor, onClose }) {
 }
 
 export default App;
+
