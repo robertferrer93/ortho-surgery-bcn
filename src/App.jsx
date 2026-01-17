@@ -99,7 +99,7 @@ function App() {
       role: 'Hip arthroscopy, hip preservation & hip arthroplasty',
       shortDetail:
         'Specialist in hip arthroscopy, hip preservation, robotic hip surgery and primary hip replacement.',
-      photo: '/images/team/josep_ferrer.jpeg',
+      photo: '/images/team/josep_ferrer.png',
       summary:
         'Orthopaedic surgeon dedicated to hip preservation and arthroscopy, minimally invasive and robotic hip arthroplasty, and sports-related hip pathology. He practises at IMOVE Group, Clínica Diagonal and MC Mutual.',
       experience: [
@@ -1209,4 +1209,5 @@ function DoctorModal({ doctor, onClose }) {
 }
 
 export default App;
+
 
